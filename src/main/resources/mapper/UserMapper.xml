@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hbsi.wang.mapper.UserMapper">
+    <resultMap id="UserMap" type="com.hbsi.wang.bean.User">
+        <id column="id" jdbcType="VARCHAR" property="id"></id>
+        <result column="username" jdbcType="VARCHAR" property="username"></result>
+        <result column="password" jdbcType="VARCHAR" property="password"></result>
+        <result column="sex" jdbcType="VARCHAR" property="sex"></result>
+        <result column="state" jdbcType="VARCHAR" property="state"></result>
+        <result column="realName" jdbcType="VARCHAR" property="real_name"></result>
+    </resultMap>
+    <insert id="insertUser">
+        insert into t_user(id,username,password,sex,state,real_name) values (#{id},#{username},#{password},#{sex},#{state},#{realName})
+    </insert>
+
+    <select id="selectUsername" resultMap="UserMap">
+        select username from t_user where username=#{username}
+    </select>
+    <select id="selectUserPass" resultMap="UserMap">
+        select * from t_user where username=#{user.username} and password=#{user.password} and state="000"
+    </select>
+</mapper>

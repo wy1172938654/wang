@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hbsi.wang.mapper.EmpMapper">
+    <resultMap id="EmpMap" type="com.hbsi.wang.bean.Emp">
+        <id column="id" jdbcType="VARCHAR" property="id"></id>
+        <result column="name" jdbcType="VARCHAR" property="name"></result>
+        <result column="age" jdbcType="INTEGER" property="age"></result>
+        <result column="bir" jdbcType="DATE" property="bir"></result>
+        <result column="state" jdbcType="VARCHAR" property="state"></result>
+    </resultMap>
+    <select id="selectEmpAll" resultMap="EmpMap">
+        select * from emp where state="000"
+    </select>
+    <insert id="insertEmp">
+        insert into emp (id,name,age,bir,state) values (#{id},#{name},#{age},#{bir},#{state})
+    </insert>
+<!--    删除-->
+    <update id="deleteId">
+        update emp set state=#{state} where id=#{id}
+    </update>
+<!--    修改-->
+    <update id="updateEmp">
+        update emp set name=#{name},age=#{age},bir=#{bir}
+        where id=#{id}
+    </update>
+</mapper>

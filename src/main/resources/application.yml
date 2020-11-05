@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    # mybatis 配置
+    #mybatis:
+    ##  mapper-locations: classpath:mapper/*Mapper.xml
+    ##  type-aliases-package: com.hbsi.springboot03.mapper
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.hbsi.springboot03.mapper
+  config-location: classpath:/mybatis-config.xml
